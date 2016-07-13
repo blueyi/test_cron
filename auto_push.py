@@ -17,7 +17,10 @@ error_log_file = 'auto.log'
 error_log = open(error_log_file, 'a')
 
 
-def print_to_file(msg, file_opened=error_log):
+now_time = datetime.date.today().strftime('%Y%m%d')
+
+def print_to_file(tmsg='', file_opened=error_log):
+    msg = tmsg + ' --' + now_time
     print(msg)
     file_opened.write(str(msg) + '\n')
 
@@ -41,14 +44,16 @@ def run_cmd_nolog(cmd):
 
 
 def git_push():
-    commit_msg = datetime.date.today().strftime('%Y%m%d') + '_bak'
+    commit_msg = now_time + '_bak'
     run_cmd_nolog('git add .')
     run_cmd_nolog('git commit -m ' + commit_msg)
     run_cmd_nolog('git push')
 
 
-sql_file_name = 'shadowsocks_' + datetime.date.today().strftime('%Y%m%d') + '.sql'
-sql_bak_cmd = 'mysqldump -u root -p1MBLUEYIniu@ shadowsocks > ' + sql_file_name
+sql_user = 'root'
+sql_pass = 'blueyiniu'
+sql_file_name = 'shadowsocks_' + now_time + '.sql'
+sql_bak_cmd = 'mysqldump -u ' + sql_user + ' -p' + sql_pass + ' shadowsocks > ' + sql_file_name
 run_cmd(sql_bak_cmd)
 
 error_log.close()

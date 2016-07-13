@@ -1,4 +1,2 @@
-
-<<< mysqldump -u root -p1MBLUEYIniu@ shadowsocks > shadowsocks_20160713.sql >>> run failed!
-
-<<< mysqldump -u root -p1MBLUEYIniu@ shadowsocks > shadowsocks_20160713.sql >>> run failed!
+ --20160713
+<<< mysqldump -u root -pblueyiniu shadowsocks > shadowsocks_20160713.sql >>> run failed! --20160713
