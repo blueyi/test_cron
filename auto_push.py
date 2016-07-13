@@ -51,9 +51,9 @@ def git_push():
 
 
 sql_user = 'root'
-sql_pass = 'blueyiniu'
-database_name = 'mysql'
-sql_file_name = 'shadowsocks_' + now_time + '.sql'
+sql_pass = '1MBLUEYIniu@'
+database_name = 'shadowsocks'
+sql_file_name = database_name + '_' + now_time + '.sql'
 sql_bak_cmd = 'mysqldump -u ' + sql_user + ' -p' + sql_pass + ' ' + database_name + ' > ' + sql_file_name
 run_cmd(sql_bak_cmd)
 
